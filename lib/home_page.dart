@@ -1,10 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:vibration/vibration.dart';
 import 'model/cell_model.dart';
 import 'util/custom_logger.dart';
 import 'util/common_componet.dart';
 import 'util/constants.dart';
-import 'repository/services.dart';
+import 'repository/servicesHttp.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,11 +25,11 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.grey.shade900,
       appBar: ComComp.getAppBar(COLORS.APP_THEME_COLOR, "Home"),
       body: Center(
         child: FutureBuilder<List<CellModel>>(
-          future: Services.fetchHomeData(),
+          future: ServicesHttp.fetchHomeData(),
           builder: (context, snapshot) {
             return snapshot.connectionState == ConnectionState.done
                 ? snapshot.hasData
@@ -56,5 +57,6 @@ gridClicked(BuildContext context, CellModel cellModel) {
   if (kDebugMode) {
     logger.d('cell press ${cellModel.id}');
   }
+  Vibration.vibrate(duration: 1000);
   // Grid Click
 }
