@@ -1,17 +1,18 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'model/cell_model.dart';
+import 'util/custom_logger.dart';
 import 'util/common_componet.dart';
 import 'util/constants.dart';
 import 'repository/services.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class HomePageState extends State<HomePage> {
   late bool isHomeDataLoading;
 
   @override
@@ -52,5 +53,8 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 gridClicked(BuildContext context, CellModel cellModel) {
+  if (kDebugMode) {
+    logger.d('cell press ${cellModel.id}');
+  }
   // Grid Click
 }
