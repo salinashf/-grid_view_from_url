@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:grid_view_from_url/widget/cell_fancy.dart';
+import 'package:grid_view_from_url/widget/cell_pushable_3d.dart';
 import 'constants.dart';
 import '../widget/cell.dart';
+import '../widget/cell_neumorphic_btn.dart';
 import '../model/cell_model.dart';
 
 class ComComp {
-
   static AppBar getAppBar(Color color, String title) {
     return AppBar(
       backgroundColor: COLORS.APP_THEME_COLOR,
@@ -21,24 +23,25 @@ class ComComp {
     );
   }
 
-
   static Padding homeGrid(
       AsyncSnapshot<List<CellModel>> snapshot, Function gridClicked) {
     return Padding(
       padding: const EdgeInsets.only(
           left: 20.0, right: 20.0, bottom: 20.0, top: 30.0),
-      child: GridView.builder(
-        shrinkWrap: true,
-        itemCount: snapshot.data?.length,
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemBuilder: (BuildContext context, int index) {
-          return GestureDetector(
-            child: Cell(snapshot.data![index]),
-            onTap: () => gridClicked(context, snapshot.data![index]),
-          );
-        },
-      ),
+      child: RotatedBox(
+          quarterTurns: 1,
+          child: GridView.builder(
+            shrinkWrap: true,
+            itemCount: snapshot.data?.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 8, crossAxisSpacing: 1.0, mainAxisSpacing: 0.0),
+            itemBuilder: (BuildContext context, int index) {
+              return GestureDetector(
+                child: CellFancy(snapshot.data![index]),
+                onTap: () => gridClicked(context, snapshot.data![index]),
+              );
+            },
+          )),
     );
   }
 
@@ -53,6 +56,7 @@ class ComComp {
       onPressed: () => fetch(),
     );
   }
+
   static Padding text(String text, FontWeight fontWeight, double fontSize,
       List padding, Color color, TextOverflow overflow) {
     return Padding(
@@ -82,5 +86,4 @@ class ComComp {
       ),
     );
   }
-
 }
