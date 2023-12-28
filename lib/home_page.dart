@@ -26,7 +26,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
-      appBar: ComComp.getAppBar(COLORS.APP_THEME_COLOR, "Home"),
+      //appBar: ComComp.getAppBar(COLORS.APP_THEME_COLOR, "Home"),
       body: Center(
         child: FutureBuilder<List<CellModel>>(
           future: ServicesHttp.fetchHomeData(),
