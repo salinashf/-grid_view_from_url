@@ -23,14 +23,14 @@ class GridButtonsState extends State<GridButtonsScreen> {
       //appBar: ComComp.getAppBar(COLORS.APP_THEME_COLOR, "Home"),
       body: Center(
         child: FutureBuilder<List<ButtonsMacro>?>(
-          future: ServicesButtons.fetchButtonGridFromURL(context),
+          future: ServicesButtons.fetchButtonGridFromAssets(context),
           builder: (context, snapshot) {
             //logger.e(snapshot);
             return snapshot.connectionState == ConnectionState.done
                 ? snapshot.hasData
-                    ? ComComp.homeGrid(snapshot, gridClicked)
-                    : ComComp.retryButton(fetch)
-                : ComComp.circularProgress();
+                    ? ComComp.buttonsGrid(snapshot, gridClicked)
+                    : ComComp.connectionRetryButton(fetch)
+                : ComComp.loadDataCircularProgress();
           },
         ),
       ),

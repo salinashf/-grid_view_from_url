@@ -9,7 +9,6 @@ class CellButton extends StatelessWidget {
   @required
   final ButtonsMacro cellModel;
   @override
-  @override
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
