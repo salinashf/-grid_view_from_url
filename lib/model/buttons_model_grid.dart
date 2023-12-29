@@ -9,16 +9,16 @@ class ButtonsModelScreen {
     if (json['Buttons'] != null) {
       buttons = <ButtonsMacro>[];
       json['Buttons'].forEach((v) {
-        buttons!.add(new ButtonsMacro.fromJson(v));
+        buttons!.add(ButtonsMacro.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Method'] = this.method;
-    if (this.buttons != null) {
-      data['Buttons'] = this.buttons!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['Method'] = method;
+    if (buttons != null) {
+      data['Buttons'] = buttons!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -42,12 +42,12 @@ class ButtonsMacro {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['IconBase64'] = this.iconBase64;
-    data['Position_X'] = this.positionX;
-    data['Position_Y'] = this.positionY;
-    data['LabelBase64'] = this.labelBase64;
-    data['BackgroundColorHex'] = this.backgroundColorHex;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['IconBase64'] = iconBase64;
+    data['Position_X'] = positionX;
+    data['Position_Y'] = positionY;
+    data['LabelBase64'] = labelBase64;
+    data['BackgroundColorHex'] = backgroundColorHex;
     return data;
   }
 }

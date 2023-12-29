@@ -20,18 +20,15 @@ class ComComp {
     );
   }
 
-  static Padding homeGrid(
-      AsyncSnapshot<List<ButtonsMacro>?> snapshot, Function gridClicked) {
+  static Padding homeGrid(AsyncSnapshot<List<ButtonsMacro>?> snapshot, Function gridClicked) {
     return Padding(
-      padding: const EdgeInsets.only(
-          left: 20.0, right: 20.0, bottom: 20.0, top: 30.0),
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0, top: 30.0),
       child: RotatedBox(
           quarterTurns: 1,
           child: GridView.builder(
             shrinkWrap: true,
             itemCount: snapshot.data?.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 8, crossAxisSpacing: 1.0, mainAxisSpacing: 0.0),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 8, crossAxisSpacing: 1.0, mainAxisSpacing: 0.0),
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 child: CellButton(snapshot.data![index]),
@@ -54,14 +51,9 @@ class ComComp {
     );
   }
 
-  static Padding text(String text, FontWeight fontWeight, double fontSize,
-      List padding, Color color, TextOverflow overflow) {
+  static Padding text(String text, FontWeight fontWeight, double fontSize, List padding, Color color, TextOverflow overflow) {
     return Padding(
-      padding: EdgeInsets.only(
-          left: padding[0],
-          right: padding[1],
-          top: padding[2],
-          bottom: padding[3]),
+      padding: EdgeInsets.only(left: padding[0], right: padding[1], top: padding[2], bottom: padding[3]),
       child: Text(
         text,
         textAlign: TextAlign.left,
