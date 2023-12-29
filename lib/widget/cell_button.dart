@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:grid_view_from_url/widget/fancy_button/FancyButton.dart';
-import '../model/buttons_model_screen.dart';
+import 'package:grid_view_from_url/widget/module/fancy_button_control/FancyButton.dart';
+import '../model/buttons_model_grid.dart';
+import '../util/string_ext.dart';
 
-class CellFancyLu extends StatelessWidget {
-  const CellFancyLu(this.cellModel, {super.key});
+class CellButton extends StatelessWidget {
+  const CellButton(this.cellModel, {super.key});
   @required
   final ButtonsMacro cellModel;
   @override
@@ -22,8 +23,10 @@ class CellFancyLu extends StatelessWidget {
               color: Colors.grey.shade800,
               onPressed: () {},
               child: Image.memory(
-                  const Base64Decoder()
-                      .convert(cellModel.iconBase64.toString()),
+                  const Base64Decoder().convert(
+                      cellModel.iconBase64.toString().isNullOrEmpty()
+                          ? cellModel.labelBase64.toString()
+                          : cellModel.iconBase64.toString()),
                   width: 40.0,
                   height: 40.0,
                   alignment: Alignment.center,

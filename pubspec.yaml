@@ -39,6 +39,9 @@ dependencies:
   logger: ^2.0.2+1
   vibration: ^1.8.4
   neumorphic_button: ^0.0.1+2
+  pushable_button:
+    path: B:/WorkServerFlutter/MacroDeckFlutter/pushable_button/
+
 
 dev_dependencies:
   flutter_test:

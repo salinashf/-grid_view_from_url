@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grid_view_from_url/widget/cell_fancy.dart';
-import 'package:grid_view_from_url/widget/cell_pushable_3d.dart';
+import 'package:grid_view_from_url/model/buttons_model_grid.dart';
+import 'package:grid_view_from_url/widget/cell_button.dart';
 import 'constants.dart';
-import '../widget/cell.dart';
-import '../widget/cell_neumorphic_btn.dart';
-import '../model/cell_model.dart';
 
 class ComComp {
   static AppBar getAppBar(Color color, String title) {
@@ -24,7 +21,7 @@ class ComComp {
   }
 
   static Padding homeGrid(
-      AsyncSnapshot<List<CellModel>> snapshot, Function gridClicked) {
+      AsyncSnapshot<List<ButtonsMacro>?> snapshot, Function gridClicked) {
     return Padding(
       padding: const EdgeInsets.only(
           left: 20.0, right: 20.0, bottom: 20.0, top: 30.0),
@@ -37,7 +34,7 @@ class ComComp {
                 crossAxisCount: 8, crossAxisSpacing: 1.0, mainAxisSpacing: 0.0),
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
-                child: CellFancy(snapshot.data![index]),
+                child: CellButton(snapshot.data![index]),
                 onTap: () => gridClicked(context, snapshot.data![index]),
               );
             },
