@@ -1,10 +1,10 @@
-class ButtonsModelScreen {
+class ButtonsGridModel {
   String? method;
   List<ButtonsMacro>? buttons;
 
-  ButtonsModelScreen({this.method, this.buttons});
+  ButtonsGridModel({this.method, this.buttons});
 
-  ButtonsModelScreen.fromJson(Map<String, dynamic> json) {
+  ButtonsGridModel.fromJson(Map<String, dynamic> json) {
     method = json['Method'];
     if (json['Buttons'] != null) {
       buttons = <ButtonsMacro>[];

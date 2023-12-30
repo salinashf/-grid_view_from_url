@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:grid_view_from_url/widget/module/fancy_button_control/FancyButton.dart';
-import '../model/buttons_model_grid.dart';
+import '../model/buttons_grid_model.dart';
 import '../util/string_ext.dart';
 
 class CellButton extends StatelessWidget {

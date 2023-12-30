@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grid_view_from_url/model/buttons_model_grid.dart';
+import 'package:grid_view_from_url/model/buttons_grid_model.dart';
 import 'package:grid_view_from_url/widget/cell_button.dart';
 import 'constants.dart';
 

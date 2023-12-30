@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:vibration/vibration.dart';
-import '../../model/buttons_model_grid.dart';
+import '../../model/buttons_grid_model.dart';
 import '../../repository/services_buttons.dart';
 import '../../util/common_componet.dart';
 class GridButtonsScreen extends StatefulWidget {

@@ -1,12 +1,12 @@
 {
-    "Method": "GET_CONFIG",
-    "Rows": 5,
-    "Columns": 10,
-    "ButtonSpacing": 2,
-    "ButtonRadius": 40,
-    "ButtonBackground": true,
-    "Brightness": 0.3,
-    "AutoConnect": false,
-    "WakeLock": "Connected",
-    "SupportButtonReleaseLongPress": true
-  }
+  "Method": "GET_CONFIG",
+  "Rows": 5,
+  "Columns": 10,
+  "ButtonSpacing": 2,
+  "ButtonRadius": 40,
+  "ButtonBackground": true,
+  "Brightness": 0.3,
+  "AutoConnect": false,
+  "WakeLock": "Connected",
+  "SupportButtonReleaseLongPress": true
+}
