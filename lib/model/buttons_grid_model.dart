@@ -9,16 +9,16 @@ class ButtonsGridModel {
     if (json['Buttons'] != null) {
       buttons = <ButtonsMacro>[];
       json['Buttons'].forEach((v) {
-        buttons!.add(new ButtonsMacro.fromJson(v));
+        buttons!.add(ButtonsMacro.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Method'] = this.method;
-    if (this.buttons != null) {
-      data['Buttons'] = this.buttons!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['Method'] = method;
+    if (buttons != null) {
+      data['Buttons'] = buttons!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -31,23 +31,26 @@ class ButtonsMacro {
   String? labelBase64;
   String? backgroundColorHex;
 
-  ButtonsMacro({this.iconBase64, this.positionX, this.positionY, this.labelBase64, this.backgroundColorHex});
+  ButtonsMacro({required this.iconBase64, required this.positionX, required this.positionY, required this.labelBase64, required this.backgroundColorHex});
 
   ButtonsMacro.fromJson(Map<String, dynamic> json) {
-    iconBase64 = json['IconBase64'];
-    positionX = json['Position_X'];
-    positionY = json['Position_Y'];
-    labelBase64 = json['LabelBase64'];
-    backgroundColorHex = json['BackgroundColorHex'];
+    iconBase64 = json['IconBase64']!.toString();
+    positionX = int.tryParse(json['Position_X']?.toString() ?? '')!;
+    positionY = int.tryParse(json['Position_Y']?.toString() ?? '')!;
+    labelBase64 = json['LabelBase64']!.toString();
+    backgroundColorHex = json['BackgroundColorHex']!.toString();
   }
+  int  positonABS(){
+    return  int.tryParse('${positionY}${positionX}')!  ;
 
+  }
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['IconBase64'] = this.iconBase64;
-    data['Position_X'] = this.positionX;
-    data['Position_Y'] = this.positionY;
-    data['LabelBase64'] = this.labelBase64;
-    data['BackgroundColorHex'] = this.backgroundColorHex;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['IconBase64'] = iconBase64;
+    data['Position_X'] = positionX;
+    data['Position_Y'] = positionY;
+    data['LabelBase64'] = labelBase64;
+    data['BackgroundColorHex'] = backgroundColorHex;
     return data;
   }
 }

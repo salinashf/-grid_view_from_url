@@ -30,7 +30,7 @@ class ComComp {
           child: GridView.builder(
             shrinkWrap: true,
             itemCount: snapshot.data?.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 8, crossAxisSpacing: 1.0, mainAxisSpacing: 0.0),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 10, crossAxisSpacing: 1.0, mainAxisSpacing: 0.0),
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 child: CellButton(snapshot.data![index]),
